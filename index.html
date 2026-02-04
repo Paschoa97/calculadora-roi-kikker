@@ -2,33 +2,34 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Calculadora ROI Kikker</title>
+  <title>Calculadora ROI - Kikker</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Calculadora de ROI - Kikker</h2>
+<div class="container">
 
-<form id="roiForm">
+  <h1>Calculadora de ROI - Kikker</h1>
 
-  <h3>Dados do Lead</h3>
-  <input type="text" id="nome" placeholder="Nome" required><br><br>
-  <input type="email" id="email" placeholder="Email" required><br><br>
-  <input type="tel" id="telefone" placeholder="Telefone" required><br><br>
+  <form id="roiForm">
 
-  <h3>Dados da Rede</h3>
-  <input type="number" id="faturamento" placeholder="Faturamento mensal (R$)" required><br><br>
-  <input type="number" id="margem" placeholder="Margem bruta (%)" required><br><br>
-  <input type="number" id="lojas" placeholder="Quantidade de lojas" required><br><br>
-  <input type="number" id="cds" placeholder="Quantidade de CDs" required><br><br>
-  <input type="number" id="itens" placeholder="Itens ativos por loja" required><br><br>
+    <h2>Dados do Lead</h2>
+    <input type="text" id="nome" placeholder="Nome completo" required>
+    <input type="email" id="email" placeholder="E-mail" required>
+    <input type="tel" id="telefone" placeholder="Telefone / WhatsApp" required>
 
-  <button type="submit">Calcular ROI</button>
+    <h2>Dados da Rede</h2>
+    <input type="number" id="faturamento" placeholder="Faturamento mensal (R$)" required>
+    <input type="number" id="margem" placeholder="Margem bruta (%)" required>
+    <input type="number" id="lojas" placeholder="Quantidade de lojas" required>
+    <input type="number" id="cds" placeholder="Quantidade de CDs" required>
+    <input type="number" id="itens" placeholder="Itens ativos por loja" required>
 
-</form>
+    <button type="submit">Calcular ROI</button>
 
-<hr>
+  </form>
 
-<div id="resultado"></div>
+</div>
 
 <script src="script.js"></script>
 </body>
