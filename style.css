@@ -1,85 +1,46 @@
 body {
-  font-family: Inter, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: #f4f6f8;
-  padding: 40px;
 }
 
-.relatorio {
-  max-width: 900px;
-  margin: auto;
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-}
-
-.logo {
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.header {
-  border-bottom: 3px solid #0a7c6a;
-  margin-bottom: 30px;
-}
-
-.header h1 {
-  margin: 0;
-  color: #0a7c6a;
-}
-
-.bloco {
-  margin: 30px 0;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.card {
-  background: #f9fafb;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
-}
-
-.ganho {
-  border-left: 5px solid #0a7c6a;
-}
-
-.intangiveis {
-  columns: 2;
-}
-
-.resultado-final {
-  background: #0a7c6a;
-  color: white;
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #0a7c6a;
   text-align: center;
 }
 
-.footer {
-  margin-top: 40px;
-  text-align: center;
+h2 {
+  margin-top: 20px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 button {
-  padding: 12px 20px;
-  border: none;
+  width: 100%;
+  padding: 12px;
   background: #0a7c6a;
   color: white;
+  border: none;
   border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
 }
 
-@media print {
-  button {
-    display: none;
-  }
-  body {
-    background: white;
-    padding: 0;
-  }
+button:hover {
+  background: #086457;
 }
+
