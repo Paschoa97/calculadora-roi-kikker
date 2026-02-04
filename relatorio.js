@@ -58,7 +58,7 @@ let alivioCaixa = ganhoEstoque;
 
 // ====== PREENCHER RELATÓRIO ======
 document.getElementById("clienteInfo").innerText =
-  `Cliente: ${nome} | Rede: ${rede} | Email: ${email}`;
+  `Relatório gerado para a rede: ${rede}`;
 
 document.getElementById("fatAnual").innerText = moeda(faturamentoAnual);
 document.getElementById("margem").innerText = (margem * 100) + "%";
