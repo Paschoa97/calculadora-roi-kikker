@@ -82,6 +82,13 @@ td {
   margin-top: 30px;
 }
 
+#roiFinal {
+  color: #ffffff;            /* branco puro */
+  font-size: 48px;           /* maior destaque */
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* melhora leitura */
+}
+
 footer {
   text-align: center;
   margin-top: 20px;
