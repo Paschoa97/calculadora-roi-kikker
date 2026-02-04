@@ -11,6 +11,15 @@ body {
   border-radius: 12px;
 }
 
+.logo-area {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.logo {
+  height: 50px;
+}
+
 h1 {
   color: #0a7c6a;
   text-align: center;
@@ -30,6 +39,10 @@ input {
   font-size: 15px;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
 button {
   width: 100%;
   padding: 14px;
@@ -45,7 +58,3 @@ button {
 button:hover {
   background: #086457;
 }
-
-  background: #086457;
-}
-
