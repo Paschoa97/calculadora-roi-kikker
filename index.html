@@ -9,6 +9,10 @@
 
 <div class="container">
 
+  <div class="logo-area">
+    <img src="logo-kikker.png" alt="Kikker" class="logo">
+  </div>
+
   <h1>Calculadora de ROI - Kikker</h1>
 
   <form id="roiForm">
@@ -23,8 +27,10 @@
 
     <input type="text" id="faturamento" placeholder="Faturamento mensal (R$)" required>
     <input type="text" id="margem" placeholder="Margem bruta (%)" required>
-    <input type="number" id="lojas" placeholder="Quantidade de lojas" required>
-    <input type="number" id="cds" placeholder="Quantidade de CDs" required>
+
+    <input type="number" id="lojas" placeholder="Quantidade de lojas" required min="1" step="1">
+    <input type="number" id="cds" placeholder="Quantidade de CDs" required min="1" step="1">
+
     <input type="text" id="itens" placeholder="Itens ativos por loja" required>
 
     <button type="submit">Calcular ROI</button>
