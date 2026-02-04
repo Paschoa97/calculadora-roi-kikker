@@ -89,6 +89,10 @@ td {
   text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* melhora leitura */
 }
 
+#alivioCaixa {
+  color: #ffffff;
+}
+
 footer {
   text-align: center;
   margin-top: 20px;
