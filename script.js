@@ -27,6 +27,17 @@ itensInput.addEventListener("input", function () {
   this.value = valor;
 });
 
+// Bloquear números negativos e decimais em lojas e CDs
+const lojasInput = document.getElementById("lojas");
+const cdsInput = document.getElementById("cds");
+
+[lojasInput, cdsInput].forEach(input => {
+  input.addEventListener("input", function(){
+    let valor = this.value.replace(/\D/g,"");
+    this.value = valor;
+  });
+});
+
 // ====== FORM SUBMIT ======
 
 document.getElementById("roiForm").addEventListener("submit", function(e){
@@ -53,7 +64,6 @@ document.getElementById("roiForm").addEventListener("submit", function(e){
   let itens = Number(itensTexto);
 
   // ====== CÁLCULOS ======
-
   let faturamentoAnual = faturamentoMensal * 12;
   let cmv = faturamentoAnual - (faturamentoAnual * margem);
 
