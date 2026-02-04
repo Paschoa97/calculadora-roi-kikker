@@ -1,3 +1,8 @@
+if (!params.get("faturamento") || !params.get("margem")) {
+  alert("Por favor, preencha o formulário para gerar seu relatório.");
+  window.location.href = "https://landingpage.kikker.com.br/calculadora-de-roi-kikker";
+}
+
 // ====== LER PARÂMETROS DA URL (vindos do RD Station) ======
 const params = new URLSearchParams(window.location.search);
 
