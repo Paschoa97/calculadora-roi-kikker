@@ -1,0 +1,42 @@
+body {
+  font-family: Arial;
+  background: #f4f6f8;
+}
+
+.relatorio {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
+
+.card {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.resultado {
+  background: #0a7c6a;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background: #0a7c6a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
