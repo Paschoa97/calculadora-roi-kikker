@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora ROI Kikker</title>
+</head>
+<body>
+
+<h2>Calculadora de ROI - Kikker</h2>
+
+<form id="roiForm">
+
+  <h3>Dados do Lead</h3>
+  <input type="text" id="nome" placeholder="Nome" required><br><br>
+  <input type="email" id="email" placeholder="Email" required><br><br>
+  <input type="tel" id="telefone" placeholder="Telefone" required><br><br>
+
+  <h3>Dados da Rede</h3>
+  <input type="number" id="faturamento" placeholder="Faturamento mensal (R$)" required><br><br>
+  <input type="number" id="margem" placeholder="Margem bruta (%)" required><br><br>
+  <input type="number" id="lojas" placeholder="Quantidade de lojas" required><br><br>
+  <input type="number" id="cds" placeholder="Quantidade de CDs" required><br><br>
+  <input type="number" id="itens" placeholder="Itens ativos por loja" required><br><br>
+
+  <button type="submit">Calcular ROI</button>
+
+</form>
+
+<hr>
+
+<div id="resultado"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
