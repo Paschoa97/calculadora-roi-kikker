@@ -2,40 +2,106 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Relatório ROI - Kikker</title>
+  <title>Relatório Executivo de ROI - Kikker</title>
   <link rel="stylesheet" href="relatorio.css">
 </head>
 <body>
 
-<div class="relatorio">
+<div class="page">
 
-  <h1>Relatório Executivo de ROI - Kikker</h1>
-  <p id="infoLead"></p>
+  <header class="topo">
+    <img src="logo-kikker.png" class="logo">
+    <h1>Relatório Executivo de ROI</h1>
+    <p id="clienteInfo"></p>
+  </header>
 
-  <div class="grid">
-    <div class="card">Faturamento Anual<br><strong id="fatAnual"></strong></div>
-    <div class="card">Margem Bruta<br><strong id="margemOut"></strong></div>
-    <div class="card">Lojas<br><strong id="lojasOut"></strong></div>
-    <div class="card">CDs<br><strong id="cdsOut"></strong></div>
-    <div class="card">Itens ativos<br><strong id="itensOut"></strong></div>
-  </div>
+  <section class="bloco">
+    <h2>Objetivo</h2>
+    <p>
+      Objetivo deste estudo é ter um norte de retorno sobre os investimentos da rede em questão sobre a possibilidade
+      de implantação de ferramentas de gestão de compras e abastecimentos automatizadas Kikker.
+    </p>
+    <p>
+      Os resultados esperados serão após a devida implantação, parametrização e estabilização do projeto.
+    </p>
+    <p>
+      Este trabalho é parte integrante do estudo de viabilidade e tomada de decisão para implantação do projeto.
+    </p>
+    <p>
+      Foi utilizado atenuante de cenário conservador a razão de 50% a menor considerando variáveis não conhecidas.
+    </p>
+  </section>
 
-  <h2>Ganhos Tangíveis</h2>
+  <section>
+    <h2>Ganhos Tangíveis</h2>
+    <div class="cards">
+      <div class="card-verde">✔ Rupturas Comerciais<br><small>Redução de perda de venda por falta de produtos.</small></div>
+      <div class="card-verde">✔ Rupturas Operacionais<br><small>Redução de perda de venda por divergências operacionais.</small></div>
+      <div class="card-verde">✔ Rupturas Logísticas<br><small>Redução de perda de venda com estoque em CD.</small></div>
+      <div class="card-verde">✔ Quebras / Desperdícios<br><small>Redução de custo por compra inadequada.</small></div>
+      <div class="card-verde">✔ Alívio no fluxo de caixa<br><small>Redução no volume de compras.</small></div>
+      <div class="card-verde">✔ Redução nos estoques<br><small>Redução média de dias em estoque.</small></div>
+    </div>
+  </section>
 
-  <div class="grid">
-    <div class="card">Rupturas Comerciais<br><strong id="ganhoComercial"></strong></div>
-    <div class="card">Rupturas Operacionais<br><strong id="ganhoOperacional"></strong></div>
-    <div class="card">Quebras / Desperdício<br><strong id="ganhoQuebras"></strong></div>
-    <div class="card">Redução Estoques<br><strong id="ganhoEstoque"></strong></div>
-  </div>
+  <section class="bloco">
+    <h2>Ganhos Intangíveis</h2>
+    <ul class="intangiveis">
+      <li>Organização do setor comercial</li>
+      <li>Organização dos processos de compras</li>
+      <li>Sincronismo entre setores</li>
+      <li>Automação de processos</li>
+      <li>Controle e rastreio</li>
+      <li>Governança</li>
+      <li>Controle de S&OP</li>
+      <li>Redução de tempo operacional</li>
+    </ul>
+  </section>
 
-  <div class="resultado">
-    <h2>Resultado Final</h2>
+  <section class="bloco">
+    <h2>Resultado de Oportunidades</h2>
+    <table>
+      <tr><td>Faturamento anual rede</td><td id="fatAnual"></td></tr>
+      <tr><td>Margem bruta</td><td id="margem"></td></tr>
+      <tr><td>Quantidade de lojas</td><td id="lojas"></td></tr>
+      <tr><td>Quantidade de CDs</td><td id="cds"></td></tr>
+      <tr><td>Itens ativos por loja</td><td id="itens"></td></tr>
+    </table>
+  </section>
+
+  <section class="grid-2">
+
+    <div class="box">
+      <h3>Ruptura Comercial</h3>
+      <p>Ganho efetivo: <strong id="ganhoComercial"></strong></p>
+    </div>
+
+    <div class="box">
+      <h3>Ruptura Operacional</h3>
+      <p>Ganho efetivo: <strong id="ganhoOperacional"></strong></p>
+    </div>
+
+    <div class="box">
+      <h3>Quebras / Desperdício</h3>
+      <p>Ganho efetivo: <strong id="ganhoQuebras"></strong></p>
+    </div>
+
+    <div class="box">
+      <h3>Redução Estoques</h3>
+      <p>Valor reduzido: <strong id="ganhoEstoque"></strong></p>
+    </div>
+
+  </section>
+
+  <section class="resultado-final">
+    <h2>ROI Final + Alívio de Caixa</h2>
     <h1 id="roiFinal"></h1>
-    <h3 id="alivioFinal"></h3>
-  </div>
+    <h3 id="alivioCaixa"></h3>
+  </section>
 
-  <button onclick="window.print()">Exportar PDF</button>
+  <footer>
+    <button onclick="window.print()">Exportar PDF</button>
+  </footer>
 
 </div>
 
