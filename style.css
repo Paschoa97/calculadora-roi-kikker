@@ -8,7 +8,7 @@ body {
   margin: 40px auto;
   background: white;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 h1 {
@@ -23,24 +23,29 @@ h2 {
 
 input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 8px 0;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 15px;
 }
 
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   background: #0a7c6a;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 button:hover {
+  background: #086457;
+}
+
   background: #086457;
 }
 
