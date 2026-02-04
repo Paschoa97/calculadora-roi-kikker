@@ -1,4 +1,3 @@
-// ====== LER PARÂMETROS DA URL (vindos do RD Station) ======
 const params = new URLSearchParams(window.location.search);
 
 let rede = params.get("rede");
@@ -8,13 +7,11 @@ let lojas = Number(params.get("lojas"));
 let cds = Number(params.get("cds"));
 let itens = Number(params.get("itens"));
 
-// ====== PROTEÇÃO CONTRA ACESSO DIRETO ======
 if (!rede || !faturamentoMensal || !margem || !lojas) {
   alert("Por favor, preencha o formulário para gerar seu relatório.");
   window.location.href = "https://landingpage.kikker.com.br/calculadora-de-roi-kikker";
 }
 
-// ====== FUNÇÃO PARA FORMATAR MOEDA ======
 function moeda(valor){
   return valor.toLocaleString("pt-BR", {
     style: "currency",
@@ -22,44 +19,25 @@ function moeda(valor){
   });
 }
 
-// ====== CÁLCULOS ======
-
-// Faturamento anual
 let faturamentoAnual = faturamentoMensal * 12;
-
-// CMV
 let cmv = faturamentoAnual - (faturamentoAnual * margem);
 
-// Rupturas comerciais
 let ganhoComercial = (faturamentoAnual * 0.10 * 0.25 * margem) * 0.5;
-
-// Rupturas operacionais
 let ganhoOperacional = (faturamentoAnual * 0.10 * 0.25 * margem) * 0.5;
-
-// Quebras / desperdício
 let ganhoQuebras = (cmv * 0.03) * 0.35;
 
-// Redução de estoques
 let vendaDia = faturamentoAnual / 365;
 let vendaDiaCMV = vendaDia - (vendaDia * margem);
 let reducaoDias = (3 + 6) / 2;
 let ganhoEstoque = vendaDiaCMV * reducaoDias;
 
-// Ganhos totais
 let ganhosTotais = ganhoComercial + ganhoOperacional + ganhoQuebras;
 
-// Custos Kikker
 let investimentoInicial = 8300 * lojas;
 let mensalidade = 1600 * lojas;
 let custoAnual = (mensalidade * 12) + investimentoInicial;
 
-// ROI
 let roi = (ganhosTotais / custoAnual).toFixed(2);
-
-// Alívio de caixa
-let alivioCaixa = ganhoEstoque;
-
-// ====== PREENCHER O RELATÓRIO ======
 
 document.getElementById("clienteInfo").innerText =
   `Relatório gerado para a rede: ${rede}`;
@@ -77,4 +55,4 @@ document.getElementById("ganhoEstoque").innerText = moeda(ganhoEstoque);
 
 document.getElementById("roiFinal").innerText = roi + "x";
 document.getElementById("alivioCaixa").innerText =
-  "Alívio de Caixa: " + moeda(alivioCaixa);
+  "Alívio de Caixa: " + moeda(ganhoEstoque);
