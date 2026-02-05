@@ -2,76 +2,266 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Relatório Executivo de ROI | Kikker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="relatorio.css">
+  <title>Relatório Executivo de ROI – Kikker</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #1f2933;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      background: #ffffff;
+      padding: 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 4px solid #0b7a66;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    header img {
+      height: 48px;
+    }
+
+    h1 {
+      color: #0b7a66;
+      margin: 0;
+    }
+
+    h2 {
+      color: #0b7a66;
+      margin-top: 40px;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: #0b7a66;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .box {
+      background: #f9fbfc;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 25px;
+    }
+
+    .linha {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-left: 5px solid #0b7a66;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 18px;
+    }
+
+    .checklist {
+      columns: 2;
+      margin-top: 15px;
+    }
+
+    .checklist li {
+      margin-bottom: 10px;
+    }
+
+    .resultado-final {
+      background: #0b7a66;
+      color: #ffffff;
+      padding: 40px;
+      text-align: center;
+      border-radius: 16px;
+      margin-top: 50px;
+    }
+
+    .resultado-final h2 {
+      color: #ffffff;
+      margin-top: 0;
+    }
+
+    .resultado-final .roi {
+      font-size: 52px;
+      font-weight: bold;
+      margin: 25px 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    button {
+      background: #0b7a66;
+      color: #ffffff;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    @media print {
+      button { display: none; }
+      body { background: #ffffff; }
+      .container { padding: 0; }
+    }
+  </style>
 </head>
+
 <body>
+<div class="container">
 
-<div class="page">
-
-  <header class="topo">
-    <img src="logo-kikker.png" class="logo" alt="Kikker">
+  <!-- HEADER -->
+  <header>
+    <img src="logo-kikker.png" alt="Kikker">
     <h1>Relatório Executivo de ROI</h1>
   </header>
 
-  <section class="bloco destaque">
-    <strong id="redeNome"></strong>
-  </section>
+  <!-- IDENTIFICAÇÃO -->
+  <div class="box">
+    <strong id="clienteInfo"></strong>
+  </div>
 
-  <section class="bloco">
-    <h2>Objetivo</h2>
-    <p>
-      Este relatório tem como objetivo estimar o retorno financeiro potencial
-      com a implantação da plataforma Kikker, considerando ganhos operacionais,
-      comerciais e alívio de caixa.
-    </p>
-    <p>
-      Os valores apresentados utilizam um cenário conservador, com redutor de 50%
-      para variáveis não controladas.
-    </p>
-  </section>
+  <!-- CONTEXTO -->
+  <h2>Objetivo do Estudo</h2>
+  <p>
+    Este relatório tem como objetivo apoiar a tomada de decisão estratégica sobre a adoção da plataforma Kikker,
+    estimando os impactos financeiros, operacionais e organizacionais decorrentes da automação e otimização dos
+    processos de abastecimento, compras e gestão de estoques.
+  </p>
 
-  <section class="bloco">
+  <p>
+    A análise considera um cenário conservador, utilizando redutores de risco para variáveis não totalmente
+    controláveis, garantindo maior segurança na leitura dos resultados apresentados.
+  </p>
+
+  <!-- PREMISSAS -->
+  <h2>Premissas Utilizadas</h2>
+  <ul>
+    <li>Dados informados pela própria operação</li>
+    <li>Ganhos projetados com redutor conservador de 50%</li>
+    <li>ROI calculado em base anual e recorrente</li>
+    <li>Custos de implantação e mensalidade integralmente considerados</li>
+  </ul>
+
+  <!-- RESUMO EXECUTIVO -->
+  <h2>Resumo Executivo</h2>
+  <p>
+    A análise indica que a adoção da plataforma Kikker gera impactos financeiros positivos relevantes,
+    apresentando retorno sobre investimento atrativo mesmo em um cenário conservador.
+  </p>
+
+  <p>
+    Além dos ganhos financeiros diretos, a solução promove ganhos estruturais na operação, aumentando
+    previsibilidade, controle e eficiência na tomada de decisão, ao mesmo tempo em que reduz riscos operacionais.
+  </p>
+
+  <!-- DADOS BASE -->
+  <div class="box">
     <h2>Resultado de Oportunidades</h2>
 
-    <table>
-      <tr><td>Faturamento anual da rede</td><td id="fatAnual"></td></tr>
-      <tr><td>Margem bruta</td><td id="margem"></td></tr>
-      <tr><td>Quantidade de lojas</td><td id="lojas"></td></tr>
-      <tr><td>Quantidade de CDs</td><td id="cds"></td></tr>
-      <tr><td>Itens ativos por loja</td><td id="itens"></td></tr>
-    </table>
-  </section>
+    <div class="linha"><span>Faturamento anual da rede</span><span id="fatAnual"></span></div>
+    <div class="linha"><span>Margem bruta</span><span id="margem"></span></div>
+    <div class="linha"><span>Quantidade de lojas</span><span id="lojas"></span></div>
+    <div class="linha"><span>Quantidade de CDs</span><span id="cds"></span></div>
+    <div class="linha"><span>Itens ativos por loja</span><span id="itens"></span></div>
+  </div>
 
-  <section class="grid-2">
-    <div class="box">
+  <!-- GANHOS TANGÍVEIS -->
+  <h2>Ganhos Tangíveis</h2>
+
+  <div class="grid-2">
+    <div class="card">
       <h3>Ruptura Comercial</h3>
+      Redução de perda de vendas por indisponibilidade de produtos.
       <strong id="ganhoComercial"></strong>
     </div>
 
-    <div class="box">
+    <div class="card">
       <h3>Ruptura Operacional</h3>
+      Redução de falhas operacionais de abastecimento.
       <strong id="ganhoOperacional"></strong>
     </div>
 
-    <div class="box">
+    <div class="card">
       <h3>Quebras / Desperdício</h3>
+      Redução de perdas por compras inadequadas e validade.
       <strong id="ganhoQuebras"></strong>
     </div>
 
-    <div class="box">
+    <div class="card">
       <h3>Redução de Estoques</h3>
+      Diminuição do capital imobilizado em estoque.
       <strong id="ganhoEstoque"></strong>
     </div>
-  </section>
+  </div>
 
-  <section class="resultado-final">
+  <!-- GANHOS INTANGÍVEIS -->
+  <h2>Ganhos Intangíveis</h2>
+  <ul class="checklist">
+    <li>Aumento da previsibilidade operacional</li>
+    <li>Redução de dependência de pessoas-chave</li>
+    <li>Padronização dos processos da rede</li>
+    <li>Decisões orientadas por dados</li>
+    <li>Integração entre áreas</li>
+    <li>Redução de stress operacional</li>
+  </ul>
+
+  <!-- IMPACTO ORGANIZACIONAL -->
+  <h2>Impacto Organizacional</h2>
+  <p>
+    A implantação da Kikker promove a evolução do modelo de gestão da operação,
+    permitindo que o time direcione esforços para análise estratégica e melhoria contínua,
+    reduzindo o volume de decisões reativas e emergenciais.
+  </p>
+
+  <!-- RESULTADO FINAL -->
+  <div class="resultado-final">
     <h2>ROI Final + Alívio de Caixa</h2>
-    <div id="roiFinal" class="roi"></div>
+    <div class="roi" id="roiFinal"></div>
     <div id="alivioCaixa"></div>
-  </section>
+  </div>
 
+  <!-- CONCLUSÃO -->
+  <h2>Conclusão Executiva</h2>
+  <p>
+    Com base na análise realizada, a adoção da plataforma Kikker se apresenta como uma
+    decisão estratégica consistente, com impacto financeiro positivo, redução de riscos
+    operacionais e ganhos estruturais relevantes para a organização.
+  </p>
+
+  <!-- CTA -->
   <footer>
     <button onclick="window.print()">Exportar PDF</button>
   </footer>
