@@ -3,142 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>Relatório Executivo de ROI - Kikker</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      border-bottom: 4px solid #0b7a66;
-      padding-bottom: 15px;
-    }
-
-    header img {
-      height: 50px;
-    }
-
-    h1 {
-      color: #0b7a66;
-    }
-
-    .box {
-      background: #f9fbfc;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .card {
-      border-left: 5px solid #0b7a66;
-      padding: 15px;
-      background: #fff;
-      border-radius: 8px;
-    }
-
-    .resultado-final {
-      background: #0b7a66;
-      color: #fff;
-      padding: 30px;
-      text-align: center;
-      border-radius: 12px;
-      margin-top: 30px;
-    }
-
-    .resultado-final h2 {
-      color: #fff;
-    }
-
-    .resultado-final .roi {
-      font-size: 48px;
-      font-weight: bold;
-      margin: 20px 0;
-    }
-
-    .linha {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #ddd;
-      padding: 8px 0;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    button {
-      background: #0b7a66;
-      color: #fff;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-  </style>
+  <link rel="stylesheet" href="relatorio.css">
 </head>
 <body>
 
 <div class="container">
 
-  <header>
-    <img src="logo-kikker.png" alt="Kikker">
+  <header class="topo">
+    <img src="logo-kikker.png" alt="Kikker" class="logo">
     <h1>Relatório Executivo de ROI</h1>
   </header>
 
-  <div class="box">
+  <div class="bloco">
     <strong id="clienteInfo"></strong>
   </div>
 
-  <div class="box">
+  <div class="bloco">
     <h2>Resultado de Oportunidades</h2>
 
-    <div class="linha"><span>Faturamento anual rede</span><span id="fatAnual"></span></div>
+    <div class="linha"><span>Faturamento anual da rede</span><span id="fatAnual"></span></div>
     <div class="linha"><span>Margem bruta</span><span id="margem"></span></div>
     <div class="linha"><span>Quantidade de lojas</span><span id="lojas"></span></div>
     <div class="linha"><span>Quantidade de CDs</span><span id="cds"></span></div>
     <div class="linha"><span>Itens ativos por loja</span><span id="itens"></span></div>
   </div>
 
-  <div class="grid">
+  <div class="grid-2">
 
-    <div class="card">
+    <div class="box">
       <h3>Ruptura Comercial</h3>
       Ganho efetivo: <strong id="ganhoComercial"></strong>
     </div>
 
-    <div class="card">
+    <div class="box">
       <h3>Ruptura Operacional</h3>
       Ganho efetivo: <strong id="ganhoOperacional"></strong>
     </div>
 
-    <div class="card">
+    <div class="box">
       <h3>Quebras / Desperdício</h3>
       Ganho efetivo: <strong id="ganhoQuebras"></strong>
     </div>
 
-    <div class="card">
-      <h3>Redução Estoques</h3>
+    <div class="box">
+      <h3>Redução de Estoques</h3>
       Valor reduzido: <strong id="ganhoEstoque"></strong>
     </div>
 
@@ -146,7 +54,7 @@
 
   <div class="resultado-final">
     <h2>ROI Final + Alívio de Caixa</h2>
-    <div class="roi" id="roiFinal"></div>
+    <div id="roiFinal"></div>
     <div id="alivioCaixa"></div>
   </div>
 
