@@ -1,8 +1,22 @@
-const dados = JSON.parse(localStorage.getItem("roiData"));
+/* ================================
+   RELATÓRIO EXECUTIVO DE ROI
+   KIKKER – JS FINAL
+================================ */
 
-if (!dados) {
-  alert("Dados não encontrados. Volte e realize a simulação.");
-  window.location.href = "index.html";
+const params = new URLSearchParams(window.location.search);
+
+/* ================================
+   FUNÇÕES UTILITÁRIAS
+================================ */
+
+function numero(valor) {
+  if (!valor) return 0;
+  return Number(
+    valor
+      .toString()
+      .replace(/\./g, "")
+      .replace(",", ".")
+  );
 }
 
 function moeda(valor) {
@@ -12,51 +26,122 @@ function moeda(valor) {
   });
 }
 
-// Dados base
-const faturamentoMensal = dados.faturamento;
-const margem = dados.margem / 100;
-const lojas = dados.lojas;
-const cds = dados.cds;
-const itens = dados.itens;
+/* ================================
+   CAPTURA DOS DADOS
+================================ */
 
-// Cálculos
+const rede = params.get("rede") || "—";
+
+const faturamentoMensal = numero(params.get("faturamento"));
+const margemPercentual = numero(params.get("margem"));
+const lojas = numero(params.get("lojas"));
+const cds = numero(params.get("cds"));
+const itens = numero(params.get("itens"));
+
+const margem = margemPercentual / 100;
+
+/* ================================
+   CÁLCULOS BASE
+================================ */
+
+// Faturamento e CMV
 const faturamentoAnual = faturamentoMensal * 12;
 const cmv = faturamentoAnual * (1 - margem);
 
-// Ganhos (modelo conservador)
-const ganhoComercial = faturamentoAnual * 0.10 * 0.25 * margem * 0.5;
-const ganhoOperacional = ganhoComercial;
-const ganhoQuebras = cmv * 0.03 * 0.35;
+// ================================
+// GANHOS – CENÁRIO CONSERVADOR
+// ================================
 
-// Estoque
-const vendaDiaCMV = cmv / 365;
-const reducaoDias = 4.5;
-const ganhoEstoque = vendaDiaCMV * reducaoDias;
+// Ruptura Comercial
+// 10% das vendas afetadas
+// 25% recuperável
+// 50% redutor conservador
+const ganhoComercial =
+  faturamentoAnual * 0.10 * 0.25 * margem * 0.5;
 
-// Custos
-const investimentoInicial = 8300 * lojas;
-const mensalidade = 1600 * lojas;
-const custoAnual = investimentoInicial + (mensalidade * 12);
+// Ruptura Operacional
+const ganhoOperacional =
+  faturamentoAnual * 0.10 * 0.25 * margem * 0.5;
 
+// Quebras / Desperdício
+// 3% do CMV
+// 35% mitigável
+const ganhoQuebras =
+  cmv * 0.03 * 0.35;
+
+// Redução de Estoque
+// Média de 4,5 dias de estoque
+const vendaDiariaCMV = cmv / 365;
+const reducaoDiasEstoque = 4.5;
+const ganhoEstoque =
+  vendaDiariaCMV * reducaoDiasEstoque;
+
+// ================================
+// GANHOS TOTAIS
+// ================================
+
+const ganhosTotais =
+  ganhoComercial +
+  ganhoOperacional +
+  ganhoQuebras;
+
+// ================================
+// CUSTOS KIKKER
+// ================================
+
+const setupPorLoja = 8300;
+const mensalidadePorLoja = 1600;
+
+const investimentoInicial = setupPorLoja * lojas;
+const custoAnual =
+  investimentoInicial +
+  (mensalidadePorLoja * lojas * 12);
+
+// ================================
 // ROI
-const ganhosTotais = ganhoComercial + ganhoOperacional + ganhoQuebras;
-const roi = (ganhosTotais / custoAnual).toFixed(2);
+// ================================
 
-// Render
-document.getElementById("redeNome").innerText =
-  "Relatório gerado para a rede analisada";
+const roi =
+  custoAnual > 0
+    ? (ganhosTotais / custoAnual)
+    : 0;
 
-document.getElementById("fatAnual").innerText = moeda(faturamentoAnual);
-document.getElementById("margem").innerText = (dados.margem) + "%";
-document.getElementById("lojas").innerText = lojas;
-document.getElementById("cds").innerText = cds;
-document.getElementById("itens").innerText = itens.toLocaleString("pt-BR");
+/* ================================
+   PREENCHIMENTO DO HTML
+================================ */
 
-document.getElementById("ganhoComercial").innerText = moeda(ganhoComercial);
-document.getElementById("ganhoOperacional").innerText = moeda(ganhoOperacional);
-document.getElementById("ganhoQuebras").innerText = moeda(ganhoQuebras);
-document.getElementById("ganhoEstoque").innerText = moeda(ganhoEstoque);
+document.getElementById("clienteInfo").innerText =
+  `Relatório gerado para a rede: ${rede}`;
 
-document.getElementById("roiFinal").innerText = roi + "x";
+document.getElementById("fatAnual").innerText =
+  moeda(faturamentoAnual);
+
+document.getElementById("margem").innerText =
+  `${margemPercentual}%`;
+
+document.getElementById("lojas").innerText =
+  lojas;
+
+document.getElementById("cds").innerText =
+  cds;
+
+document.getElementById("itens").innerText =
+  itens.toLocaleString("pt-BR");
+
+document.getElementById("ganhoComercial").innerText =
+  moeda(ganhoComercial);
+
+document.getElementById("ganhoOperacional").innerText =
+  moeda(ganhoOperacional);
+
+document.getElementById("ganhoQuebras").innerText =
+  moeda(ganhoQuebras);
+
+document.getElementById("ganhoEstoque").innerText =
+  moeda(ganhoEstoque);
+
+document.getElementById("roiFinal").innerText =
+  `${roi.toFixed(2)}x`;
+
 document.getElementById("alivioCaixa").innerText =
-  "Alívio de Caixa estimado: " + moeda(ganhoEstoque);
+  `Alívio de Caixa estimado: ${moeda(ganhoEstoque)}`;
