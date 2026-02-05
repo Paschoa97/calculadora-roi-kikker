@@ -7,56 +7,84 @@
 </head>
 <body>
 
-<div class="container">
+<div class="page">
 
+  <!-- HEADER -->
   <header class="topo">
-    <img src="logo-kikker.png" alt="Kikker" class="logo">
-    <h1>Relatório Executivo de ROI</h1>
+    <img src="logo-kikker.png" class="logo" alt="Kikker">
+    <div>
+      <h1>Relatório Executivo de ROI</h1>
+      <p id="clienteInfo"></p>
+    </div>
   </header>
 
-  <div class="bloco">
-    <strong id="clienteInfo"></strong>
-  </div>
+  <!-- OBJETIVO -->
+  <section class="bloco">
+    <h2>Objetivo</h2>
+    <p>
+      Este relatório tem como objetivo apresentar uma estimativa do retorno financeiro
+      da implantação das soluções Kikker na gestão de compras, abastecimento e estoques.
+    </p>
+    <p>
+      Os valores apresentados utilizam cenário conservador e servem como apoio à análise
+      de viabilidade e tomada de decisão.
+    </p>
+  </section>
 
-  <div class="bloco">
+  <!-- GANHOS TANGÍVEIS -->
+  <section>
+    <h2>Ganhos Tangíveis Avaliados</h2>
+    <div class="cards">
+      <div class="card-verde">Rupturas Comerciais</div>
+      <div class="card-verde">Rupturas Operacionais</div>
+      <div class="card-verde">Quebras e Desperdícios</div>
+      <div class="card-verde">Alívio no Fluxo de Caixa</div>
+      <div class="card-verde">Redução de Estoques</div>
+    </div>
+  </section>
+
+  <!-- RESULTADO DE OPORTUNIDADES -->
+  <section class="bloco">
     <h2>Resultado de Oportunidades</h2>
 
-    <div class="linha"><span>Faturamento anual da rede</span><span id="fatAnual"></span></div>
-    <div class="linha"><span>Margem bruta</span><span id="margem"></span></div>
-    <div class="linha"><span>Quantidade de lojas</span><span id="lojas"></span></div>
-    <div class="linha"><span>Quantidade de CDs</span><span id="cds"></span></div>
-    <div class="linha"><span>Itens ativos por loja</span><span id="itens"></span></div>
-  </div>
+    <table>
+      <tr><td>Faturamento anual da rede</td><td id="fatAnual"></td></tr>
+      <tr><td>Margem bruta</td><td id="margem"></td></tr>
+      <tr><td>Quantidade de lojas</td><td id="lojas"></td></tr>
+      <tr><td>Quantidade de CDs</td><td id="cds"></td></tr>
+      <tr><td>Itens ativos por loja</td><td id="itens"></td></tr>
+    </table>
+  </section>
 
-  <div class="grid-2">
-
+  <!-- DETALHAMENTO DOS GANHOS -->
+  <section class="grid-2">
     <div class="box">
       <h3>Ruptura Comercial</h3>
-      Ganho efetivo: <strong id="ganhoComercial"></strong>
+      <strong id="ganhoComercial"></strong>
     </div>
 
     <div class="box">
       <h3>Ruptura Operacional</h3>
-      Ganho efetivo: <strong id="ganhoOperacional"></strong>
+      <strong id="ganhoOperacional"></strong>
     </div>
 
     <div class="box">
       <h3>Quebras / Desperdício</h3>
-      Ganho efetivo: <strong id="ganhoQuebras"></strong>
+      <strong id="ganhoQuebras"></strong>
     </div>
 
     <div class="box">
       <h3>Redução de Estoques</h3>
-      Valor reduzido: <strong id="ganhoEstoque"></strong>
+      <strong id="ganhoEstoque"></strong>
     </div>
+  </section>
 
-  </div>
-
-  <div class="resultado-final">
+  <!-- RESULTADO FINAL -->
+  <section class="resultado-final">
     <h2>ROI Final + Alívio de Caixa</h2>
-    <div id="roiFinal"></div>
+    <div id="roiFinal" class="roi"></div>
     <div id="alivioCaixa"></div>
-  </div>
+  </section>
 
   <footer>
     <button onclick="window.print()">Exportar PDF</button>
