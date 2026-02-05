@@ -1,23 +1,11 @@
 /* ================================
    RELATÓRIO EXECUTIVO DE ROI
-   KIKKER – JS FINAL
+   KIKKER – JS FINAL (LOCALSTORAGE)
 ================================ */
-
-const params = new URLSearchParams(window.location.search);
 
 /* ================================
    FUNÇÕES UTILITÁRIAS
 ================================ */
-
-function numero(valor) {
-  if (!valor) return 0;
-  return Number(
-    valor
-      .toString()
-      .replace(/\./g, "")
-      .replace(",", ".")
-  );
-}
 
 function moeda(valor) {
   return valor.toLocaleString("pt-BR", {
@@ -30,13 +18,19 @@ function moeda(valor) {
    CAPTURA DOS DADOS
 ================================ */
 
-const rede = params.get("rede") || "—";
+const dados = JSON.parse(localStorage.getItem("roiData"));
 
-const faturamentoMensal = numero(params.get("faturamento"));
-const margemPercentual = numero(params.get("margem"));
-const lojas = numero(params.get("lojas"));
-const cds = numero(params.get("cds"));
-const itens = numero(params.get("itens"));
+if (!dados) {
+  alert("Dados não encontrados. Refaça a simulação.");
+  window.location.href = "index.html";
+}
+
+// Dados base
+const faturamentoMensal = dados.faturamento;
+const margemPercentual = dados.margem;
+const lojas = dados.lojas;
+const cds = dados.cds;
+const itens = dados.itens;
 
 const margem = margemPercentual / 100;
 
@@ -48,14 +42,11 @@ const margem = margemPercentual / 100;
 const faturamentoAnual = faturamentoMensal * 12;
 const cmv = faturamentoAnual * (1 - margem);
 
-// ================================
-// GANHOS – CENÁRIO CONSERVADOR
-// ================================
+/* ================================
+   GANHOS – CENÁRIO CONSERVADOR
+================================ */
 
 // Ruptura Comercial
-// 10% das vendas afetadas
-// 25% recuperável
-// 50% redutor conservador
 const ganhoComercial =
   faturamentoAnual * 0.10 * 0.25 * margem * 0.5;
 
@@ -64,30 +55,27 @@ const ganhoOperacional =
   faturamentoAnual * 0.10 * 0.25 * margem * 0.5;
 
 // Quebras / Desperdício
-// 3% do CMV
-// 35% mitigável
 const ganhoQuebras =
   cmv * 0.03 * 0.35;
 
-// Redução de Estoque
-// Média de 4,5 dias de estoque
+// Redução de Estoque (alívio de caixa)
 const vendaDiariaCMV = cmv / 365;
 const reducaoDiasEstoque = 4.5;
 const ganhoEstoque =
   vendaDiariaCMV * reducaoDiasEstoque;
 
-// ================================
-// GANHOS TOTAIS
-// ================================
+/* ================================
+   GANHOS TOTAIS
+================================ */
 
 const ganhosTotais =
   ganhoComercial +
   ganhoOperacional +
   ganhoQuebras;
 
-// ================================
-// CUSTOS KIKKER
-// ================================
+/* ================================
+   CUSTOS KIKKER
+================================ */
 
 const setupPorLoja = 8300;
 const mensalidadePorLoja = 1600;
@@ -97,21 +85,18 @@ const custoAnual =
   investimentoInicial +
   (mensalidadePorLoja * lojas * 12);
 
-// ================================
-// ROI
-// ================================
+/* ================================
+   ROI
+================================ */
 
 const roi =
   custoAnual > 0
-    ? (ganhosTotais / custoAnual)
+    ? ganhosTotais / custoAnual
     : 0;
 
 /* ================================
    PREENCHIMENTO DO HTML
 ================================ */
-
-document.getElementById("clienteInfo").innerText =
-  `Relatório gerado para a rede: ${rede}`;
 
 document.getElementById("fatAnual").innerText =
   moeda(faturamentoAnual);
