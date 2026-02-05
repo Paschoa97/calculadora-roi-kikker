@@ -7,10 +7,6 @@ let lojas = Number(params.get("lojas"));
 let cds = Number(params.get("cds"));
 let itens = Number(params.get("itens"));
 
-if (!rede || !faturamentoMensal || !margem || !lojas) {
-  alert("Por favor, preencha o formulário para gerar seu relatório.");
-  window.location.href = "https://landingpage.kikker.com.br/calculadora-de-roi-kikker";
-}
 
 function moeda(valor){
   return valor.toLocaleString("pt-BR", {
