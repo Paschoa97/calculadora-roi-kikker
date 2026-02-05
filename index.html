@@ -2,66 +2,153 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Calculadora de ROI - Kikker</title>
+  <title>Simule seu ROI | Kikker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f4f6f8;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
     }
-    .box {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 25px;
+
+    .container {
+      max-width: 640px;
+      margin: 60px auto;
+      background: #ffffff;
+      padding: 40px;
       border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-    label {
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo img {
+      height: 42px;
+    }
+
+    h1 {
+      color: #0b7a66;
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
       display: block;
-      margin-top: 15px;
       font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 14px;
     }
-    input {
+
+    .field input {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
     }
+
     button {
-      margin-top: 25px;
       width: 100%;
-      padding: 14px;
+      margin-top: 30px;
+      padding: 16px;
+      font-size: 16px;
       background: #0b7a66;
       color: #fff;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
       cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #096b5a;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
-  <div class="box">
-    <h2>Simule seu ROI</h2>
+  <div class="container">
 
-    <label>Faturamento mensal da rede</label>
-    <input id="faturamento" type="number" />
+    <div class="logo">
+      <img src="logo-kikker.png" alt="Kikker">
+    </div>
 
-    <label>Margem bruta (%)</label>
-    <input id="margem" type="number" />
+    <h1>Simule seu ROI</h1>
+    <p class="subtitle">
+      Preencha os dados abaixo para visualizar o impacto financeiro na sua operação.
+    </p>
 
-    <label>Quantidade de lojas</label>
-    <input id="lojas" type="number" />
+    <div class="field">
+      <label>Faturamento mensal da rede (R$)</label>
+      <input type="number" id="faturamento" placeholder="Ex: 15000000" />
+    </div>
 
-    <label>Quantidade de CDs</label>
-    <input id="cds" type="number" />
+    <div class="field">
+      <label>Margem bruta (%)</label>
+      <input type="number" id="margem" placeholder="Ex: 25" />
+    </div>
 
-    <label>Itens ativos por loja</label>
-    <input id="itens" type="number" />
+    <div class="field">
+      <label>Quantidade de lojas</label>
+      <input type="number" id="lojas" placeholder="Ex: 10" />
+    </div>
 
-    <button id="verRelatorio">Ver relatório</button>
+    <div class="field">
+      <label>Quantidade de CDs</label>
+      <input type="number" id="cds" placeholder="Ex: 2" />
+    </div>
+
+    <div class="field">
+      <label>Itens ativos por loja</label>
+      <input type="number" id="itens" placeholder="Ex: 10000" />
+    </div>
+
+    <button onclick="verRelatorio()">Ver relatório completo</button>
+
+    <footer>
+      Simulação estimada. Valores ilustrativos.
+    </footer>
+
   </div>
 
-  <script src="calculadora.js"></script>
+  <script>
+    function verRelatorio() {
+      const dados = {
+        faturamento: Number(document.getElementById("faturamento").value),
+        margem: Number(document.getElementById("margem").value),
+        lojas: Number(document.getElementById("lojas").value),
+        cds: Number(document.getElementById("cds").value),
+        itens: Number(document.getElementById("itens").value)
+      };
+
+      localStorage.setItem("roiData", JSON.stringify(dados));
+      window.location.href = "relatorio.html";
+    }
+  </script>
+
 </body>
 </html>
