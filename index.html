@@ -38,7 +38,7 @@
       margin-bottom: 10px;
     }
 
-    p.subtitle {
+    .subtitle {
       text-align: center;
       color: #555;
       margin-bottom: 30px;
@@ -91,64 +91,108 @@
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <div class="logo">
-      <img src="logo-kikker.png" alt="Kikker">
-    </div>
-
-    <h1>Simule seu ROI</h1>
-    <p class="subtitle">
-      Preencha os dados abaixo para visualizar o impacto financeiro na sua operação.
-    </p>
-
-    <div class="field">
-      <label>Faturamento mensal da rede (R$)</label>
-      <input type="number" id="faturamento" placeholder="Ex: 15000000" />
-    </div>
-
-    <div class="field">
-      <label>Margem bruta (%)</label>
-      <input type="number" id="margem" placeholder="Ex: 25" />
-    </div>
-
-    <div class="field">
-      <label>Quantidade de lojas</label>
-      <input type="number" id="lojas" placeholder="Ex: 10" />
-    </div>
-
-    <div class="field">
-      <label>Quantidade de CDs</label>
-      <input type="number" id="cds" placeholder="Ex: 2" />
-    </div>
-
-    <div class="field">
-      <label>Itens ativos por loja</label>
-      <input type="number" id="itens" placeholder="Ex: 10000" />
-    </div>
-
-    <button onclick="verRelatorio()">Ver relatório completo</button>
-
-    <footer>
-      Simulação estimada. Valores ilustrativos.
-    </footer>
-
+  <div class="logo">
+    <img src="logo-kikker.png" alt="Kikker">
   </div>
 
-  <script>
-    function verRelatorio() {
-      const dados = {
-        faturamento: Number(document.getElementById("faturamento").value),
-        margem: Number(document.getElementById("margem").value),
-        lojas: Number(document.getElementById("lojas").value),
-        cds: Number(document.getElementById("cds").value),
-        itens: Number(document.getElementById("itens").value)
-      };
+  <h1>Simule seu ROI</h1>
+  <p class="subtitle">
+    Preencha os dados abaixo para visualizar o impacto financeiro na sua operação.
+  </p>
 
-      localStorage.setItem("roiData", JSON.stringify(dados));
-      window.location.href = "relatorio.html";
-    }
-  </script>
+  <div class="field">
+    <label>Faturamento mensal da rede</label>
+    <input type="text" id="faturamento" placeholder="R$ 0,00">
+  </div>
+
+  <div class="field">
+    <label>Margem bruta</label>
+    <input type="text" id="margem" placeholder="0%">
+  </div>
+
+  <div class="field">
+    <label>Quantidade de lojas</label>
+    <input type="number" id="lojas" min="0" step="1">
+  </div>
+
+  <div class="field">
+    <label>Quantidade de CDs</label>
+    <input type="number" id="cds" min="0" step="1">
+  </div>
+
+  <div class="field">
+    <label>Itens ativos por loja</label>
+    <input type="text" id="itens" placeholder="0">
+  </div>
+
+  <button onclick="verRelatorio()">Ver relatório completo</button>
+
+  <footer>
+    Simulação estimada. Valores ilustrativos.
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- MÁSCARAS ---------- */
+
+  function moedaMask(valor) {
+    valor = valor.replace(/\D/g, "");
+    return (valor / 100).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    });
+  }
+
+  function numeroMask(valor) {
+    return valor.replace(/\D/g, "")
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  function porcentagemMask(valor) {
+    valor = valor.replace(/\D/g, "");
+    return valor ? `${valor}%` : "";
+  }
+
+  /* ---------- EVENTOS ---------- */
+
+  const faturamentoInput = document.getElementById("faturamento");
+  const margemInput = document.getElementById("margem");
+  const itensInput = document.getElementById("itens");
+
+  faturamentoInput.addEventListener("input", e => {
+    e.target.value = moedaMask(e.target.value);
+  });
+
+  margemInput.addEventListener("input", e => {
+    e.target.value = porcentagemMask(e.target.value);
+  });
+
+  itensInput.addEventListener("input", e => {
+    e.target.value = numeroMask(e.target.value);
+  });
+
+  /* ---------- SUBMIT ---------- */
+
+  function limparNumero(valor) {
+    return Number(valor.replace(/\D/g, ""));
+  }
+
+  function verRelatorio() {
+    const dados = {
+      faturamento: limparNumero(faturamentoInput.value) / 100,
+      margem: limparNumero(margemInput.value),
+      lojas: Number(document.getElementById("lojas").value),
+      cds: Number(document.getElementById("cds").value),
+      itens: limparNumero(itensInput.value)
+    };
+
+    localStorage.setItem("roiData", JSON.stringify(dados));
+    window.location.href = "relatorio.html";
+  }
+</script>
 
 </body>
 </html>
