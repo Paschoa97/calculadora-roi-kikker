@@ -1,11 +1,21 @@
 const params = new URLSearchParams(window.location.search);
 
-let rede = params.get("rede");
-let faturamentoMensal = Number(params.get("faturamento"));
-let margem = Number(params.get("margem")) / 100;
-let lojas = Number(params.get("lojas"));
-let cds = Number(params.get("cds"));
-let itens = Number(params.get("itens"));
+function parseNumero(valor) {
+  if (!valor) return 0;
+  return parseFloat(
+    valor
+      .toString()
+      .replace(/\./g, "")
+      .replace(",", ".")
+  );
+}
+
+let faturamentoMensal = parseNumero(params.get("faturamento"));
+let margem = parseNumero(params.get("margem")) / 100;
+let lojas = parseNumero(params.get("lojas"));
+let cds = parseNumero(params.get("cds"));
+let itens = parseNumero(params.get("itens"));
+
 
 
 function moeda(valor){
