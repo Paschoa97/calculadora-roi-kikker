@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora de ROI - Kikker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+    .box {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      background: #0b7a66;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Simule seu ROI</h2>
+
+    <label>Faturamento mensal da rede</label>
+    <input id="faturamento" type="number" />
+
+    <label>Margem bruta (%)</label>
+    <input id="margem" type="number" />
+
+    <label>Quantidade de lojas</label>
+    <input id="lojas" type="number" />
+
+    <label>Quantidade de CDs</label>
+    <input id="cds" type="number" />
+
+    <label>Itens ativos por loja</label>
+    <input id="itens" type="number" />
+
+    <button id="verRelatorio">Ver relatório</button>
+  </div>
+
+  <script src="calculadora.js"></script>
+</body>
+</html>
