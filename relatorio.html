@@ -2,70 +2,74 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Relatório Executivo de ROI – Kikker</title>
+  <title>Relatório Executivo de ROI | Kikker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="relatorio.css">
 </head>
 <body>
 
-<div class="container">
+<div class="page">
 
   <header class="topo">
-    <img src="logo-kikker.png" class="logo">
+    <img src="logo-kikker.png" class="logo" alt="Kikker">
     <h1>Relatório Executivo de ROI</h1>
   </header>
 
+  <section class="bloco destaque">
+    <strong id="redeNome"></strong>
+  </section>
+
   <section class="bloco">
-    <strong id="clienteInfo"></strong>
+    <h2>Objetivo</h2>
+    <p>
+      Este relatório tem como objetivo estimar o retorno financeiro potencial
+      com a implantação da plataforma Kikker, considerando ganhos operacionais,
+      comerciais e alívio de caixa.
+    </p>
+    <p>
+      Os valores apresentados utilizam um cenário conservador, com redutor de 50%
+      para variáveis não controladas.
+    </p>
   </section>
 
   <section class="bloco">
     <h2>Resultado de Oportunidades</h2>
 
-    <div class="linha"><span>Faturamento anual da rede</span><span id="fatAnual"></span></div>
-    <div class="linha"><span>Margem bruta</span><span id="margem"></span></div>
-    <div class="linha"><span>Quantidade de lojas</span><span id="lojas"></span></div>
-    <div class="linha"><span>Quantidade de CDs</span><span id="cds"></span></div>
-    <div class="linha"><span>Itens ativos por loja</span><span id="itens"></span></div>
+    <table>
+      <tr><td>Faturamento anual da rede</td><td id="fatAnual"></td></tr>
+      <tr><td>Margem bruta</td><td id="margem"></td></tr>
+      <tr><td>Quantidade de lojas</td><td id="lojas"></td></tr>
+      <tr><td>Quantidade de CDs</td><td id="cds"></td></tr>
+      <tr><td>Itens ativos por loja</td><td id="itens"></td></tr>
+    </table>
   </section>
 
-  <section class="cards">
-    <div class="card">
+  <section class="grid-2">
+    <div class="box">
       <h3>Ruptura Comercial</h3>
       <strong id="ganhoComercial"></strong>
     </div>
-    <div class="card">
+
+    <div class="box">
       <h3>Ruptura Operacional</h3>
       <strong id="ganhoOperacional"></strong>
     </div>
-    <div class="card">
+
+    <div class="box">
       <h3>Quebras / Desperdício</h3>
       <strong id="ganhoQuebras"></strong>
     </div>
-    <div class="card">
+
+    <div class="box">
       <h3>Redução de Estoques</h3>
       <strong id="ganhoEstoque"></strong>
     </div>
   </section>
 
-  <section class="intangiveis">
-    <h2>Ganhos Intangíveis</h2>
-    <ul>
-      <li>Padronização de processos</li>
-      <li>Melhoria de visibilidade operacional</li>
-      <li>Decisões orientadas por dados</li>
-      <li>Redução de conflitos entre áreas</li>
-      <li>Governança e previsibilidade</li>
-      <li>Escalabilidade operacional</li>
-    </ul>
-  </section>
-
   <section class="resultado-final">
     <h2>ROI Final + Alívio de Caixa</h2>
-    <div class="roi" id="roiFinal"></div>
+    <div id="roiFinal" class="roi"></div>
     <div id="alivioCaixa"></div>
-    <p class="explicacao">
-      ROI representa quantas vezes o ganho anual supera o investimento total na plataforma.
-    </p>
   </section>
 
   <footer>
