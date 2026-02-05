@@ -1,12 +1,14 @@
 body {
   font-family: Arial, sans-serif;
   background: #f2f4f6;
+  margin: 0;
+  padding: 0;
 }
 
-.page {
-  max-width: 1000px;
+.container {
+  max-width: 1100px;
   margin: auto;
-  background: white;
+  background: #ffffff;
   padding: 30px;
 }
 
@@ -14,16 +16,17 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  border-bottom: 3px solid #0a7c6a;
-  padding-bottom: 10px;
+  border-bottom: 4px solid #0a7c6a;
+  padding-bottom: 15px;
 }
 
 .logo {
-  height: 40px;
+  height: 45px;
 }
 
-h1 { color:#0a7c6a; }
-h2 { color:#0a7c6a; margin-top:30px; }
+h1, h2, h3 {
+  color: #0a7c6a;
+}
 
 .bloco {
   background: #f9fafb;
@@ -32,38 +35,18 @@ h2 { color:#0a7c6a; margin-top:30px; }
   margin-top: 20px;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 15px;
-}
-
-.card-verde {
-  background: #0a7c6a;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.intangiveis {
-  columns: 2;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-td {
-  padding: 8px;
+.linha {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #ddd;
+  padding: 8px 0;
 }
 
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .box {
@@ -75,39 +58,45 @@ td {
 
 .resultado-final {
   background: #0a7c6a;
-  color: white;
+  color: #ffffff;
   text-align: center;
   padding: 30px;
   border-radius: 12px;
   margin-top: 30px;
 }
 
-.resultado-final h2 {
-  color: #ffffff;   /* deixa o título branco */
-}
-
-#roiFinal {
-  color: #ffffff;   /* garante que o número do ROI fique branco */
-}
-
+.resultado-final h2,
+#roiFinal,
 #alivioCaixa {
   color: #ffffff;
 }
 
+#roiFinal {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
 footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 button {
-  padding: 12px 20px;
+  padding: 12px 24px;
   border: none;
   background: #0a7c6a;
-  color: white;
+  color: #ffffff;
   border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 @media print {
-  button { display:none; }
-  body { background:white; }
+  button {
+    display: none;
+  }
+  body {
+    background: #ffffff;
+  }
 }
