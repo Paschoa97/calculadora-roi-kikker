@@ -1,80 +1,92 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  background: #f2f4f6;
+  margin: 0;
 }
 
-.container {
-  max-width: 1100px;
+.page {
+  max-width: 1000px;
   margin: auto;
   background: white;
-  padding: 30px;
+  padding: 40px;
 }
 
 .topo {
   display: flex;
   align-items: center;
   gap: 20px;
-  border-bottom: 4px solid #0b7a66;
+  border-bottom: 4px solid #0a7c6a;
   padding-bottom: 15px;
 }
 
-.logo { height: 45px; }
+.logo {
+  height: 45px;
+}
 
-h1, h2, h3 { color: #0b7a66; }
+h1 {
+  color: #0a7c6a;
+}
+
+h2 {
+  color: #0a7c6a;
+  margin-top: 30px;
+}
 
 .bloco {
-  background: #f9fbfc;
+  background: #f9fafb;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-top: 25px;
 }
 
-.linha {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #ddd;
-  padding: 8px 0;
+.destaque {
+  font-size: 16px;
 }
 
-.cards {
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  font-weight: bold;
+}
+
+.grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 20px;
   margin-top: 30px;
 }
 
-.card {
-  background: white;
-  border-left: 5px solid #0b7a66;
-  padding: 20px;
+.box {
+  border-left: 5px solid #0a7c6a;
+  padding: 15px;
   border-radius: 8px;
-}
-
-.intangiveis {
-  margin-top: 30px;
-}
-
-.intangiveis ul {
-  columns: 2;
+  background: #ffffff;
 }
 
 .resultado-final {
-  background: #0b7a66;
+  background: #0a7c6a;
   color: white;
   text-align: center;
   padding: 35px;
-  border-radius: 12px;
+  border-radius: 14px;
   margin-top: 40px;
 }
 
-.resultado-final h2,
-.resultado-final p,
-.resultado-final div {
+.resultado-final h2 {
   color: white;
 }
 
 .roi {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: bold;
   margin: 15px 0;
 }
@@ -85,9 +97,9 @@ footer {
 }
 
 button {
-  background: #0b7a66;
+  padding: 14px 28px;
+  background: #0a7c6a;
   color: white;
-  padding: 12px 25px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
